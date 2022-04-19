@@ -1,0 +1,111 @@
+@import "normalize";
+@import "variables";
+
+html {
+  background-color: $main;
+  height: 100vh;
+  font-family: $font;
+  color: $dark-gray;
+}
+
+.container {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5.5rem;
+
+  h1 {
+    color: $dark-gray;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: 0.15em solid $dark-gray; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: 0.15em; /* Adjust as needed */
+    animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+    margin-top: 3rem;
+    font-size: 3rem;
+  }
+  /* The typing effect */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
+  }
+}
+
+#form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+
+  .form_new {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    label {
+      display: block;
+      margin: 0 auto;
+      background-color: gray;
+      padding: 0.3rem;
+      color: white;
+    }
+    .task-body {
+      height: 4rem;
+      resize: none;
+      background-color: $almost-white;
+      border-radius: 3px;
+
+      &:focus {
+        outline: none !important;
+        border: 1px solid $dark-gray;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+      }
+    }
+  }
+}
+
+.task-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $almost-white;
+  max-width: 50%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  padding: 0.7rem;
+
+  .pagination {
+    margin-top: 2rem;
+
+    .previous_page {
+    }
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 820px){
+  .task-list {
+    max-width: 80%;
+  }
+}

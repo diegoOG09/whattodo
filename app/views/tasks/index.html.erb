@@ -1,0 +1,19 @@
+<header id="header" class="container">
+  <h1>What do I have to do?</h1>
+</header>
+
+
+<div id="form" class="container">
+  <%= form_with(controller: "tasks", :class => "form_new", action: "create", method: :post, multipart: true) do |f| %>
+    <label>New task</label>
+    <%= f.text_area :body, :class => "task-body", placeholder: "Ex: Check emails...", :required => true %>
+    <button type="submit" id="createBtn">Create task</button>
+  <% end %>
+</div>
+
+<div class="task-list container">
+    <% @task.each do |t| %>
+      <p><%= t.body%></p>
+    <% end %>
+  <%= will_paginate @task %>
+</div>
